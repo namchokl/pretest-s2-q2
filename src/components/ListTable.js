@@ -7,7 +7,7 @@ const ListTable = ({ items }) => {
 		tableRows = items.map((item, index) => {
 			return (
 				<tr key={item}>
-					<td>{index}</td>
+					<td>{index + 1}</td>
 					<td>{item}</td>
 				</tr>
 			);
