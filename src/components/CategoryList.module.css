@@ -1,0 +1,12 @@
+.container {
+	padding: 20px;
+}
+
+label {
+	margin-right: 0.5rem;
+}
+
+.filter_input {
+	width: 16rem;
+	margin-bottom: 1rem;
+}
