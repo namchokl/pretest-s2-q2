@@ -7,11 +7,13 @@ const CategoryList = () => {
 	const [data, setData] = useState([]);
 	const [filteredData, setFilteredData] = useState([]);
 	const [keyword, setKeyword] = useState('');
+	const [loading, setLoading] = useState(false);
 
 	const url = 'https://api.publicapis.org/categories';
 
 	useEffect(() => {
 		async function fetchData() {
+			setLoading(true);
 			try {
 				const res = await fetch(url);
 				const data = await res.json();
@@ -21,6 +23,7 @@ const CategoryList = () => {
 			} catch (err) {
 				console.log(err);
 			}
+			setLoading(false);
 		}
 
 		fetchData();
@@ -53,7 +56,8 @@ const CategoryList = () => {
 				onChange={keywordChangeHandler}
 				placeholder='enter a keyword'
 			/>
-			<ListTable items={filteredData} />
+			{!loading && <ListTable items={filteredData} />}
+			{loading && <p>Loading data...</p>}
 		</div>
 	);
 };
