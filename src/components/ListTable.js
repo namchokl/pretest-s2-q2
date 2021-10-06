@@ -4,9 +4,10 @@ const ListTable = ({ items }) => {
 	let tableRows = null;
 
 	if (items && items.length) {
-		tableRows = items.map((item) => {
+		tableRows = items.map((item, index) => {
 			return (
 				<tr key={item}>
+					<td>{index}</td>
 					<td>{item}</td>
 				</tr>
 			);
@@ -17,6 +18,12 @@ const ListTable = ({ items }) => {
 		<div>
 			{tableRows && (
 				<table>
+					<thead>
+						<tr>
+							<td>No.</td>
+							<td>Name</td>
+						</tr>
+					</thead>
 					<tbody>{tableRows}</tbody>
 				</table>
 			)}
